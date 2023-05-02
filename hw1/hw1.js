@@ -1,4 +1,6 @@
-//-------------------1--------------------//
+// Створити змінні. Присвоїти кожному з них значення:
+// 'hello','owu','com', 'ua', 1, 10, -999, 123, 3.14, 2.7, 16, true, false.
+// Вивести кожну змінну за допомогою: console.log
 
 let a = 'hello'
 let b='owu'
@@ -27,7 +29,8 @@ console.log(k);
 console.log(l);
 console.log(m);
 
-//-------------------2--------------------//
+// Створити 3 змінних firstName, middleName, lastName, наповнити їх своїм ПІБ.
+// З'єднати їх в одну змінну person (Не об'єкт, просто за допомоги конкатенації)
 
 let firstName = 'Nazarii'
 let middleName='Stepanovych'
@@ -35,16 +38,18 @@ let lastName = 'Pastukh'
 person=`${firstName} ${middleName} ${lastName}`;
 console.log(person);
 
-//-------------------3--------------------//
+// За допомогою оператора typeof визначити типи наступних змінних та вивести їх в консоль.
+// let a = 100; let b = '100'; let c = true;
 
 a = 100
 b = '100'
 c = true
 console.log(typeof a, typeof b, typeof c);
 
-//-------------------4--------------------//
+// За допомогою 3х різних prompt() отримати 3 слова які являються вашими
+// Імям, По-Батькові та роками. та вивести в консоль
 
-let myFirstName=prompt();
-let myMiddleName=prompt();
-let myLastName = prompt();
+let myFirstName=prompt("Введіть Ваше ім'я:");
+let myMiddleName=prompt("Введіть Ваше ім'я по батькові:");
+let myLastName = prompt("Введіть Ваше прізвище:");
 console.log(`${myFirstName} ${myMiddleName} ${myLastName}`);
