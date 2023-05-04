@@ -59,19 +59,28 @@ let firstBook1 = {
     title: 'Harry Potter',
     pageCount: 550,
     genre: 'fantasy',
-    authors : [name='J. K. Rowling', age=57]
+    authors : [
+        {name:'J. K. Rowling'},
+        {age:57}
+    ]
 }
 let secondBook1 = {
     title: 'Forest Gump',
     pageCount: 240,
     genre: 'non-fiction',
-    authors : [name='Winston Groom', age=77]
+    authors : [
+        {name:'Winston Groom'},
+        {age:77}
+    ]
 }
 let thirdBook1 = {
     title: 'All Quiet on the Western Front',
     pageCount: 990,
     genre: 'novel',
-    authors : [name='Erich Paul Remark', age='1998-1970(72)']
+    authors : [
+        {name:'Erich Paul Remark'},
+        {age:'1998-1970(72)'},
+    ]
 }
 console.log(firstBook1, secondBook1, thirdBook1);
 
@@ -81,17 +90,26 @@ console.log(firstBook1, secondBook1, thirdBook1);
 //     {title: 'Harry Potter',
 //      pageCount: 550,
 //      genre: 'fantasy',
-//      authors : [name='J. K. Rowling', age=57]
+//      authors : [
+//         {name:'J. K. Rowling'},
+//         {age:57}
+//     ]
 //     },
 //     {title: 'Forest Gump',
 //      pageCount: 240,
 //      genre: 'non-fiction',
-//      authors : [name='Winston Groom', age=77]
+//      authors : [
+//         {name:'Winston Groom'},
+//         {age:77}
+//     ]
 //     },
 //     {title: 'All Quiet on the Western Front',
 //      pageCount: 990,
 //      genre: 'novel',
-//      authors : [name='Erich Paul Remark', age='1998-1970(72)']
+//      authors : [
+//         {name:'Erich Paul Remark'},
+//         {age:'1998-1970(72)'},
+//     ]
 //     }
 // ]
 // console.log(books1);
