@@ -3,7 +3,7 @@
 // якщо значення змінної х являється falsy (хибноподібні, тобто приводиться до false)
 
 let x = false ;
-if (x===NaN || x===undefined || x===false || x===null || x===0 || x===""){
+if (x==='' || x===null || x===undefined ||  x===0) {
     x = 'default';
 }
 console.log(x);
