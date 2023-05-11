@@ -88,8 +88,17 @@ function showUser(nameOfArray){
 showUser(userArr)
 
 // - створити функцію яка повертає найменьше число з масиву
-
-
+const arrOfNumbers1=[23, 54, 12, 87, 76, 98, 42, 31, 64, 6];
+function findNum(arr){
+    let lowestNum=arr[0];
+    for (let itemOfArr of arr){
+        if (itemOfArr<lowestNum){
+            lowestNum=itemOfArr;
+        }
+    }
+    console.log(lowestNum)
+}
+findNum(arrOfNumbers1)
 
 // - створити функцію sum(arr)яка приймає масив чисел, сумує значення елементів масиву та повертає його.
 // Приклад sum([1,2,10]) //->13
