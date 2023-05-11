@@ -8,10 +8,9 @@ console.log('------------------------------');
 
 // - створити функцію яка обчислює та повертає площу кола з радіусом r
 function areaOfCircle(r){
-    return result=Math.PI*r**2;
+    return Math.PI*r**2;
 }
-areaOfCircle(2);
-console.log(`S = ${result}`);
+console.log(`S = ${areaOfCircle(2)}`);
 
 console.log('------------------------------');
 
@@ -114,18 +113,14 @@ console.log('------------------------------')
 
 // - Написати функцію обміну валюти exchange(sumUAH,currencyValues,exchangeCurrency)
 // Приклад exchange(10000,[{currency:'USD',value:40},{currency:'EUR',value:42}],'USD') // => 250
-function exchange(sumUAH, currencyValues, exchangeCurrency){
-    if (exchangeCurrency==='USD') {
-        let usdExchange = sumUAH / currencyValues[0].value
-        console.log(usdExchange);
-    }else if(exchangeCurrency==='EUR') {
-        let eurExchange = sumUAH / currencyValues[1].value
-        console.log(eurExchange);
-    }else if(exchangeCurrency==='PLN'){
-        let plnExchange= sumUAH/currencyValues[2].value
-        console.log(plnExchange);
+function exchange(sumUAH, currencyValues, exchangeCurrency) {
+    for (let itemOfArr of currencyValues) {
+        if (itemOfArr.currency === exchangeCurrency) {
+            return result=sumUAH / itemOfArr.value;
+        }
     }
 }
 exchange(1000,
     [{currency:'USD',value:40},{currency:'EUR',value:42},{currency:'PLN',value:8.9}],
     'PLN');
+console.log(result)
