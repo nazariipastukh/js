@@ -109,24 +109,26 @@ let users = [
 
 for (const user of users){
         if (user.status){
-            console.log(user);
+            document.write(`${user.name} ${user.age} ${user.status}, `);
         }
 }
 
-console.log('--------------------------')
+document.write(`<hr>`)
 // - користувачів зі статусом false
 
 for (const user of users){
     if (!user.status){
-        console.log(user);
+        document.write(`${user.name} ${user.age} ${user.status}, `);
     }
 }
 
-console.log('--------------------------')
+document.write(`<hr>`)
 // - користувачів які старші за 30 років
 
 for (const user of users){
     if (user.age >30){
-        console.log(user);
+        document.write(`${user.name} ${user.age} ${user.status}, `)
     }
 }
+
+document.write(`<hr>`)
