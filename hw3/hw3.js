@@ -1,43 +1,39 @@
 // - За допомогою циклу for і document.write() вивести 10 блоків div c довільним текстом всередині
 
 for (let i=0; i<10; i++){
-    document.write(`<div><h3>Hello</h3></div>`)
+    document.write(`<div><p>Hello</p></div>`);
 }
 
-document.write(`<hr>`)
-
+document.write(`<hr>`);
 // - За допомогою циклу for і document.write() вивести 10 блоків div c довільним текстом і індексом всередині
 
-for (let i =0; i<10; i++){
-    document.write(`<div><h3>Hello ${i}</h3></div>`)
+for (let i=0;i<10;i++){
+    document.write(`<div><p>Hello ${i}</p></div>`);
 }
 
-document.write(`<hr>`)
-
+document.write(`<hr>`);
 // - За допомогою циклу while вивести в документ 20 блоків h1 c довільним текстом всередині.
 
-let i=0;
+let i=0
 while(i<20){
-    document.write(`<div><h1>Hello</h1></div>`)
-    i++
-}
-
-document.write(`<hr>`)
-
-// - За допомогою циклу while вивести в документ 20 блоків h1 c довільним текстом і індексом всередині.
-
-i=0;
-while(i<20){
-    document.write(`<div><h3>Hello ${i}</h3></div>`)
+    document.write(`<h1>Hello</h1>`);
     i++;
 }
 
 document.write(`<hr>`)
+// - За допомогою циклу while вивести в документ 20 блоків h1 c довільним текстом і індексом всерединi
 
+i=0;
+while(i<20){
+    document.write(`<h1>Hello ${i}</h1>`);
+    i++;
+}
+
+document.write(`<hr>`)
 // - Використовуючи данні з масиву, за допомоги document.write та циклу
 // побудувати структуру по шаблону
 // Масив:
-//      let listOfItems = ['html', 'css', 'javascript', 'mysql', 'mongodb', 'react', 'angular', 'node.js'];
+let listOfItems = ['html', 'css', 'javascript', 'mysql', 'mongodb', 'react', 'angular', 'node.js'];
 // ШАБЛОН:
 //     <ul>
 //         <li>ITEM OF ARRAY</li>
@@ -49,8 +45,6 @@ document.write(`<hr>`)
 //         -->
 //     </ul>
 // замість 'ITEM OF ARRAY' підставити елемент з масиву щоб получився цілий список з даними з масиву
-
-let listOfItems = ['html', 'css', 'javascript', 'mysql', 'mongodb', 'react', 'angular', 'node.js'];
 document.write(`<ul>`)
 for (const item of listOfItems){
     document.write(`<li>${item}</li>`)
@@ -58,7 +52,6 @@ for (const item of listOfItems){
 document.write(`</ul>`)
 
 document.write(`<hr>`)
-
 //     Використовуючи данні з масиву, за допомоги document.write та циклу
 // побудувати структуру по шаблону
 // Великими літерами прописанні властивості об'єкту які потрібно впровадити в шаблон
@@ -91,15 +84,12 @@ let products = [
 // </div>
 // Замість TITLE PRICE IMAGE - підставити відповідні поля з об'єкту
 
-for (const product of products){
-    document.write(`<div class="product-card">
-        <h3 class="product-title">${product.title}. Price - ${product.price}</h3>
-        <img src="${product.image}" alt="" class="product-image" style="width:10vw">
-        </div>`)
+for (let product of products){
+    document.write(`<div><h3>${product.title}. Price - ${product.price}</h3>
+                    <img src="${product.image}" alt="" width="200px" height="200px"></div>`)
 }
 
 document.write(`<hr>`)
-
 //     є масив
 let users = [
     {name: 'vasya', age: 31, status: false},
@@ -117,30 +107,26 @@ let users = [
 // за допомоги циклу вивести:
 //     - користувачів зі статусом true
 
-for (let user of users){
-    if (user['status']){
-        document.write(`${user.name} ${user.age} ${user.status}; `)
-    }
+for (const user of users){
+        if (user.status){
+            console.log(user);
+        }
 }
 
-document.write(`<hr>`)
-
+console.log('--------------------------')
 // - користувачів зі статусом false
 
 for (const user of users){
     if (!user.status){
-        document.write(`${user.name} ${user.age} ${user.status}; `)
+        console.log(user);
     }
 }
 
-document.write(`<hr>`)
-
+console.log('--------------------------')
 // - користувачів які старші за 30 років
 
 for (const user of users){
-    if (user.age>30){
-        document.write(`${user.name} ${user.age} ${user.status}; `)
+    if (user.age >30){
+        console.log(user);
     }
 }
-
-document.write(`<hr>`)
