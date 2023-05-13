@@ -280,7 +280,7 @@ for (i=0; i<100; i++){
         document.write(`<p>${i}</p>`);
     }
 }
-document.write(`<hr>`)
+document.write(`<hr>`);
 console.log('-----------------');
 
 // - Створити цикл for на 100 ітерацій. Вивести тільки непарні кроки. через console.log + document.write
@@ -297,36 +297,40 @@ console.log('-----------------');
 // стоврити масив книжок (назва, кількість сторінок, автори , жанри).
 
 const books = [
+
+
     {
-        title: "Book 1",
+        title: "Book 3 a",
+        pageCount: 150,
+        authors: ["Author 4", "Author 5"],
+        genres: ["Genre 2"]
+    },
+    {
+        title: "Book 1 aaa",
         pageCount: 200,
         authors: ["Author 1", "Author 2"],
         genres: ["Genre 1", "Genre 2"]
     },
     {
-        title: "Book 2",
+        title: "Book 2 aa",
         pageCount: 350,
         authors: ["Author 3"],
         genres: ["Genre 1", "Genre 3"]
     },
-    {
-        title: "Book 3",
-        pageCount: 150,
-        authors: ["Author 4", "Author 5"],
-        genres: ["Genre 2"]
-    },
 ];
 
 // -знайти наібльшу книжку.
+
 let temp=0;
 let title;
+
 for (let book of books){
         if (book.pageCount>temp){
             temp=book.pageCount;
             title=book.title;
         }
 }
-console.log(temp,title)
+console.log(temp,title);
 console.log('-----------------');
 
 // - знайти книжку/ки з найбільшою кількістю жанрів
@@ -337,22 +341,47 @@ for (let book of books){
         temp=book.genres.length;
         title1=[book.title];
     }else if(temp===book.genres.length){
-        title1[title.length]=book.title;
+        title1[title1.length]=book.title;
     }
 }
-for (i=0;i<title1.length;i++){
-    console.log(title1[i])
+for (let element of title1){
+    console.log(element);
 }
 console.log('-----------------');
 
 // - знайти книжку/ки з найдовшою назвою
 
-
-
+temp = 0;
+let title2;
+for (let book of books){
+    if (book.title.length > temp){
+        temp=book.title.length;
+        title2=book.title;
+    }
+}
+console.log(title2);
+console.log('-----------------');
 // - знайти книжку/ки які писали 2 автори
 
-
+let title3=[];
+for (let book of books){
+    if (book.authors.length===2){
+        title3[title3.length]=book.title;
+    }
+}
+for (let element of title3){
+    console.log(element);
+}
+console.log('-----------------');
 
 // - знайти книжку/ки які писав 1 автор
 
-
+let title4=[];
+for (let book of books){
+    if (book.authors.length===1){
+        title4[title4.length]=book.title;
+    }
+}
+for (let element of title4){
+    console.log(element);
+}
