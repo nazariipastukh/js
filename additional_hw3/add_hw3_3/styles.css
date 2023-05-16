@@ -1,0 +1,11 @@
+.wrap {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-gap: 10px; /* Відступ між об'єктами */
+}
+
+.post-card {
+    background-color: #ccc; /* Колір фону об'єкта */
+    padding: 10px; /* Відступ всередині об'єкта */
+    text-align: center; /* Вирівнювання тексту всередині об'єкта */
+}

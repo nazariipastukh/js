@@ -1,0 +1,11 @@
+.users-box{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Два стовпці однакової ширини */
+    grid-gap: 10px; /* Відступ між елементами */
+}
+
+.user-block{
+    background-color: #ddd;
+    padding: 20px;
+    text-align: center;
+}
