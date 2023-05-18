@@ -175,14 +175,26 @@ console.log(findClubs(cards));
 console.log(`--------------------`);
 
 //     Взяти описану колоду карт, та за допомоги reduce упакувати всі карти по "мастях" в об'єкт
-// {
-//     spades:[],
-//         diamonds:[],
-//     hearts:[],
-//     clubs:[]
-// }
 
-
+let sort=(arrName)=>arrName.reduce((acc,element)=>{
+    switch (element.cardSuit){
+        case 'spade':
+            acc.spades.push(element);
+            break;
+        case 'diamond':
+            acc.diamonds.push(element);
+            break;
+        case 'heart':
+            acc.hearts.push(element);
+            break;
+        case 'clubs':
+            acc.clubs.push(element);
+            break;
+    }
+    return acc;
+},{spades:[],diamonds:[],hearts:[],clubs:[]});
+console.log(sort(cards));
+console.log(`--------------------`);
 
 //     взяти з arrays.js (який лежить в папці 2023 plan) масив coursesArray
 let coursesArray = [
@@ -256,8 +268,12 @@ let coursesArray = [
 ];
 // --написати пошук всіх об'єктів, в який в modules є sass
 
-
+let findSass=(arrName)=>arrName.filter(element =>element.modules.includes('sass'));
+console.log(findSass(coursesArray));
+console.log(`--------------------`);
 
 // --написати пошук всіх об'єктів, в який в modules є docker
 
-
+let findDocker=(arrName)=>arrName.filter(element=>element.modules.includes('docker'));
+console.log(findDocker(coursesArray));
+console.log(`--------------------`);
