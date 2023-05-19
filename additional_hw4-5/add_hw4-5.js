@@ -136,7 +136,20 @@ console.log('--------------------');
 // результат
 //     [3,5,7,9]
 
-
+let arr1=[1,2,3,4];
+let arr2=[2,3,4,5];
+let arr3=[];
+let sum=(arrName1,arrName2)=>{
+    if (arrName1.length!==arrName2.length){
+        return 'Array lengths are not the same';
+    }
+    for (let i=0;i<arr1.length; i++){
+        arr3.push(arrName1[i]+arrName2[i]);
+    }
+    return console.log(arr3);
+}
+sum(arr1,arr2);
+console.log('--------------------');
 
 // - Створити функцію яка приймає масив будь яких объектів, та повертає масив ключів всіх обєктів
 // EXAMPLE:
