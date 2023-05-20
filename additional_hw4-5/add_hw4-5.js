@@ -155,22 +155,62 @@ console.log('--------------------');
 // EXAMPLE:
 //     [{name: 'Dima', age: 13}, {model: 'Camry'}]  ===> [ name, age, model ]
 
-
+let arrDima=[{name: 'Dima', age: 13}, {model: 'Camry'}];
+let showKey=(arrName)=>{
+    let keys=[];
+    for (let element of arrName){
+        for (let elementKey in element){
+            keys.push(elementKey);
+        }
+    }
+    return console.log(keys);
+}
+showKey(arrDima);
+console.log('--------------------');
 
 //     - Створити функцію яка приймає масив будь яких объектів, та повертає масив значень всіх обєктів
 // EXAMPLE:
 //     [{name: 'Dima', age: 13}, {model: 'Camry'}]  ===> [ Dima, 13, Camry ]
 
-
+let arrDima1=[{name: 'Dima', age: 13}, {model: 'Camry'}];
+let showElement=(arrName)=>{
+    let newArr=[];
+    for (let element of arrName){
+        for (let elementKey in element){
+            newArr.push(element[elementKey]);
+        }
+    }
+    return console.log(newArr);
+}
+showElement(arrDima1);
+console.log('--------------------');
 
 // Дано натуральное число n. Выведите все числа от 1 до n.
 
-
+let numbers=(n)=>{
+    for (let i=1; i<n; i++){
+        console.log(i);
+    }
+}
+numbers(20);
+console.log('--------------------');
 
 // - Даны два целых числа A и В . Выведите все числа от A до B включительно, в порядке возрастания, если A < B,
 // или в порядке убывания в противном случае.
 
-
+const numList=(a,b)=>{
+    if (a<b){
+        for (let i=a;i<=b;i++){
+            console.log(i);
+        }
+    }else{
+        for (let i=a;i>=b;i--){
+            console.log(i);
+        }
+    }
+}
+numList(-1,10);
+console.log('--------------------');
 
 // -   функція Приймає масив та число "i", та міняє місцями об`єкт який знаходиться в індексі "i" на "i+1"
 //   EXAMPLE:
@@ -178,7 +218,14 @@ console.log('--------------------');
 //   foo([9,8,0,4], 1) // ==> [ 9 ,0, 8, 4 ]
 //   foo([9,8,0,4], 2) // ==> [ 9, 8, 4, 0 ]
 
-
+let swap=(foo,i)=>{
+    let value1=foo[i];
+    foo[i]=foo[i+1];
+    foo[i+1]=value1;
+    console.log(foo);
+}
+swap([9,8,0,4],1);
+console.log('--------------------');
 
 // - Сворити функцію яка буде переносити елементи з значенням 0 у кінець маисву. Зберігаючи при цьому порядок не нульових значень.
 // Двожина масиву від 2 до 100
@@ -186,3 +233,20 @@ console.log('--------------------');
 // [1,0,6,0,3] => [1,6,3,0,0]
 // [0,1,2,3,4] => [1,2,3,4,0]
 // [0,0,1,0]   => [1,0,0,0]
+
+let arrayZero=[1,0,6,0,3];
+let zero=(nameArr)=>{
+    let newArr=[];
+    for (let element of nameArr) {
+        if (element !== 0) {
+            newArr.push(element);
+        }
+    }
+    for (let element of nameArr){
+        if (element ===0){
+            newArr.push(element);
+        }
+    }
+    return console.log(newArr);
+}
+zero(arrayZero);
