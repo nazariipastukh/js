@@ -1,24 +1,41 @@
 // - Напишите функцию cutString(str, n), которая делит строку на подстроки, состоящие из n символов.
 // document.writeln(cutString('наслаждение',3)) // [нас,лаж,ден,ие]
 
-
+let cutArr=[];
+let cutString=(str,n)=>{
+    for (let i=0; i<str.length; i+=n) {
+        cutArr.push(str.substring(i, i+n));
+    }
+    return console.log(cutArr);
+}
+cutString('наслаждение',3);
+console.log('--------------------');
 
 // - Напишіть функцію delete_characters(str, length), яка повертає підрядок, що складається із зазначеної кількості символів.
 //     let str = 'Каждый охотник желает знать';
 // document.writeln(delete_characters(str, 7)); // Каждый
 
-
+let str = 'Каждый охотник желает знать';
+let delete_characters=(str,length)=> console.log(str.substring(0,length));
+delete_characters(str,7);
+console.log('--------------------');
 
 // - Напишіть функцію insert_dash(str), яка приймає рядок str як аргумент і вставляє тире (-) між словами.
 // При цьому всі символи рядка необхідно перевести у верхній регістр.
 //     let str = "HTML JavaScript PHP";
 // document.writeln(insert_dash(str)); // 'HTML-JAVASCRIPT-PHP'
 
-
+let str1 = "HTML JavaScript PHP";
+let insert_dash=(str)=>console.log(str.toUpperCase().replaceAll(' ','-'));
+insert_dash(str1);
+console.log('--------------------');
 
 // - Напишіть функцію, яка приймає рядок як аргумент і перетворює регістр першого символу рядка з нижнього регістру у верхній.
 
-
+let string='кожен мисливець бажає знати';
+let upperCase=(strName)=>console.log(strName.charAt(0).toUpperCase()+strName.substring(1));
+upperCase(string);
+console.log('--------------------');
 
 // - Дано список імен.
 //     let n1 = 'Harry..Potter'
@@ -150,28 +167,72 @@
 
 // -стоврити масив книжок (назва, кількість сторінок, автори , жанри).
 
-
+let books = [
+    {
+        title: 'Book 1',
+        pageCount: 200,
+        authors: ['Author 1', 'Author 2'],
+        genres: ['Genre 1', 'Genre 2']
+    },
+    {
+        title: 'Book 2',
+        pageCount: 300,
+        authors: ['Author 3'],
+        genres: ['Genre 2', 'Genre 3']
+    },
+    {
+        title: 'Book 333333',
+        pageCount: 400,
+        authors: ['Author 4'],
+        genres: ['Genre 1']
+    }
+];
 
 // -знайти наібльшу книжку.
 
-
+let largest=(bookArray)=>{
+    let sortedArr=bookArray.sort((a,b)=>b.pageCount-a.pageCount);
+    return console.log(sortedArr[0]);
+}
+largest(books);
+console.log('--------------------');
 
 // - знайти книжку/ки з найбільшою кількістю жанрів
 
-
+let genres=(bookArray)=>{
+    let sortedArr=bookArray.sort((a,b)=>b.genres.length-a.genres.length);
+    for (let element of sortedArr){
+        if (element.genres.length===sortedArr[0].genres.length){
+            console.log(element);
+        }
+    }
+}
+genres(books);
+console.log('--------------------');
 
 // - знайти книжку/ки з найдовшою назвою
 
-
+let title=(bookArray)=>{
+    let sortedArr=bookArray.sort((a,b)=>b.title.length-a.title.length);
+            return console.log(sortedArr[0].title);
+}
+title(books);
+console.log('--------------------');
 
 // - знайти книжку/ки які писали 2 автори
 
-
+let authors=(bookArray)=>console.log(bookArray.filter(element=>element.authors.length===2));
+authors(books);
+console.log('--------------------');
 
 // - знайти книжку/ки які писав 1 автор
 
-
+let authors1=(bookArray)=>console.log(bookArray.filter(element=>element.authors.length===1));
+authors1(books);
+console.log('--------------------');
 
 // - вісортувати книжки по кількості сторінок по зростанню
 
+let sort=(arrName)=>console.log(arrName.sort((a, b) => b.pageCount - a.pageCount));
 
+sort(books);
