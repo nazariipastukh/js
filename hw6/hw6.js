@@ -1,40 +1,44 @@
 // Знайти та вивести довижину настипних стрінгових значень
 // 'hello world', 'lorem ipsum', 'javascript is cool'
 
-function length(...args){
-    array=[];
-    args.forEach(element=>array.push(element.length));
-    return console.log(array);
+let strLength=(...elements)=>{
+    let strLength=[];
+    elements.forEach(element=>strLength.push(element.length));
+    return console.log(strLength);
 }
-length('hello world','lorem ipsum','javascript is cool');
+strLength('hello world', 'lorem ipsum', 'javascript is cool');
+
 console.log(`--------------------`);
 
 // - Перевести до великого регістру наступні стрінгові значення
 // 'hello world', 'lorem ipsum', 'javascript is cool'
 
-function toUpper(...args){
-    array=[];
-    args.forEach(element=>array.push(element.toUpperCase()));
-    return console.log(array);
+let strUpper=(...elements)=>{
+    let upperStr=[];
+    elements.forEach(element=>upperStr.push(element.toUpperCase()));
+    return console.log(upperStr);
 }
-toUpper('hello world', 'lorem ipsum', 'javascript is cool');
+strUpper('hello world', 'lorem ipsum', 'javascript is cool');
+
 console.log(`--------------------`);
 
 // - Перевести до нижнього регістру настипні стрінгові значення
 // 'HELLO WORLD', 'LOREM IPSUM', 'JAVASCRIPT IS COOL'
 
-function toLower(...args){
-    array=[];
-    args.forEach(element=>array.push(element.toLowerCase()));
-    return console.log(array);
+let strLow=(...elements)=>{
+    let lowStr=[];
+    elements.forEach(element=>lowStr.push(element.toLowerCase()));
+    return console.log(lowStr);
 }
-toLower('HELLO WORLD', 'LOREM IPSUM', 'JAVASCRIPT IS COOL');
+strLow('HELLO WORLD', 'LOREM IPSUM', 'JAVASCRIPT IS COOL');
+
 console.log(`--------------------`);
 
 // - Є "брудна" стрінга let str = ' dirty string   ' . Почистити її від зайвих пробілів.
 
-let str = ' dirty string   ';
+let str=' dirty string   ';
 console.log(str.trim());
+
 console.log(`--------------------`);
 
 // - Напишіть функцію stringToarray(str), яка перетворює рядок на масив слів.
@@ -42,17 +46,19 @@ console.log(`--------------------`);
 // let arr = stringToarray(str); ['Ревуть', 'воли', 'як', 'ясла', 'повні']
 
 let str1 = 'Ревуть воли як ясла повні';
-let str1Split=str1.split(' ');
-console.log(str1Split);
+
+let stringToArray=(str)=>console.log(str.split(' '));
+stringToArray(str1);
+
 console.log(`--------------------`);
 
 // - є масив чисел [10,8,-7,55,987,-1011,0,1050,0] . за допомоги map  перетворити всі об'єкти в масиві на стрінгові.
 
-let array1=[10,8,-7,55,987,-1011,0,1050,0];
-let newArr=array1.map(value=>{
-    return value.toString();
-})
-console.log(newArr);
+let arr=[10,8,-7,55,987,-1011,0,1050,0];
+
+let map=(arr)=>console.log(arr.map(element=>element.toString()));
+map(arr);
+
 console.log(`--------------------`);
 
 // - створити функцію sortNums(direction), яка прймає масив чисел, та сортує його від більшого до меньшого,
@@ -60,15 +66,17 @@ console.log(`--------------------`);
 // sortNums(nums,'ascending') // [3,11,21]
 // sortNums(nums,'descending') // [21,11,3]
 
-let nums=[11,3,21];
-let sortNums=(nameOfArr,direction)=>{
-    if (direction==='ascending'){
-        return nums.sort((a,b)=>a-b);
-    }else if (direction==='descending'){
-        return nums.sort((a,b)=>b-a);
+let sortNums=(nums,direction)=>{
+    if (direction==='descending'){
+        return console.log(nums.sort((a,b)=>b-a));
+    }else if(direction==='ascending'){
+        return console.log(nums.sort((a,b)=>a-b));
+    }else{
+        return console.log('error');
     }
 }
-console.log(sortNums(nums,'descending'));
+sortNums([1,4,55,2,111,4,2,556,0],'ascending');
+
 console.log(`--------------------`);
 
 // - є масив
@@ -82,22 +90,23 @@ let coursesAndDurationArray = [
 ];
 // -- відсортувати його за спаданням за monthDuration
 
-let sortMonth=nameArr => nameArr.sort((a,b) => b.monthDuration - a.monthDuration);
-console.log(sortMonth(coursesAndDurationArray));
+let sorted=(arrName)=>console.log(arrName.sort((a,b)=>b.monthDuration-a.monthDuration));
+sorted(coursesAndDurationArray);
+
 console.log(`--------------------`);
 
 // -- відфільтрувати , залишивши тільки курси з тривалістю більше 5 місяців
 
-let filterDuration=nameArr=>nameArr.filter(value=>value.monthDuration>5);
-console.log(filterDuration(coursesAndDurationArray));
+let filtered=(arrName)=>console.log(arrName.filter(element=>element.monthDuration>5));
+filtered(coursesAndDurationArray);
+
 console.log(`--------------------`);
 
 // -- за допомоги map перетворити кожен елемент на наступний тип {id,title,monthDuration}
 
-let newCourses=(arrName)=>arrName.map((value,index)=>{
-    return {id:index+1, title:value.title, monthDuration:value.monthDuration};
-})
-console.log(newCourses(coursesAndDurationArray));
+let mapped=(arrName)=>arrName.map((value,index)=>console.log({id:index+1, ...value}));
+mapped(coursesAndDurationArray);
+
 console.log(`--------------------`);
 
 //     описати колоду карт (від 6 до туза без джокерів)
@@ -146,54 +155,60 @@ let cards = [
 ];
 // - знайти піковий туз
 
-let findSpade=(arrName)=>arrName.filter(element=>element.cardSuit==='spade' && element.value==='ace');
-console.log(findSpade(cards));
+let spadeAce=(arrName)=>console.log(arrName.find(element=>element.cardSuit==='spade' && element.value==='ace'));
+spadeAce(cards);
+
 console.log(`--------------------`);
+
 // - всі шістки
 
-let findSix=(arrName)=>arrName.filter(element=>element.value==='6');
-console.log(findSix(cards));
+let six=(arrName)=>console.log(arrName.filter(element=>element.value==='6'));
+six(cards);
+
 console.log(`--------------------`);
 
 // - всі червоні карти
 
-let findRed=(arrName)=>arrName.filter(element=>element.color==='red');
-console.log(findRed(cards));
+let red=(arrName)=>console.log(arrName.filter(element=>element.color==='red'));
+red(cards);
+
 console.log(`--------------------`);
 
 // - всі буби
 
-let findDiamonds=(arrName)=>arrName.filter(element=>element.cardSuit==='diamond');
-console.log(findDiamonds(cards));
+let diamond=(arrName)=>console.log(arrName.filter(element=>element.cardSuit==='diamond'));
+diamond(cards);
+
 console.log(`--------------------`);
 
 // - всі трефи від 9 та більше
 
-let findClubs=(arrName)=>arrName.filter(element=>
-    element.cardSuit==='clubs' && (element.value>=9 || element.value>='9'));
-console.log(findClubs(cards));
+let all=(arrName)=>
+    console.log(arrName.filter(element=>element.cardSuit==='clubs' && (element.value>='9' || element.value>=9)));
+all(cards);
+
 console.log(`--------------------`);
 
 //     Взяти описану колоду карт, та за допомоги reduce упакувати всі карти по "мастях" в об'єкт
 
-let sort=(arrName)=>arrName.reduce((acc,element)=>{
-    switch (element.cardSuit){
+let allCards=(arrName)=>arrName.reduce((acc,current)=>{
+    switch (current.cardSuit) {
         case 'spade':
-            acc.spades.push(element);
+            acc.spades.push(current);
             break;
         case 'diamond':
-            acc.diamonds.push(element);
+            acc.diamond.push(current);
             break;
         case 'heart':
-            acc.hearts.push(element);
+            acc.heart.push(current);
             break;
         case 'clubs':
-            acc.clubs.push(element);
-            break;
+            acc.clubs.push(current);
     }
     return acc;
-},{spades:[],diamonds:[],hearts:[],clubs:[]});
-console.log(sort(cards));
+},{spades:[], diamond:[], heart:[], clubs:[]});
+console.log(allCards(cards));
+
 console.log(`--------------------`);
 
 //     взяти з arrays.js (який лежить в папці 2023 plan) масив coursesArray
@@ -268,12 +283,14 @@ let coursesArray = [
 ];
 // --написати пошук всіх об'єктів, в який в modules є sass
 
-let findSass=(arrName)=>arrName.filter(element =>element.modules.includes('sass'));
-console.log(findSass(coursesArray));
+let sass=(arrName)=>console.log(arrName.filter(element=> element.modules.includes('sass')));
+sass(coursesArray);
+
 console.log(`--------------------`);
 
 // --написати пошук всіх об'єктів, в який в modules є docker
 
-let findDocker=(arrName)=>arrName.filter(element=>element.modules.includes('docker'));
-console.log(findDocker(coursesArray));
+let docker=(arrName)=>console.log(arrName.filter(element=>element.modules.includes('docker')));
+docker(coursesArray);
+
 console.log(`--------------------`);

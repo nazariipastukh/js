@@ -157,7 +157,9 @@ console.log('--------------------');
 //     let symb = "о", str = "Астрономия это наука о небесных объектах";
 // document.writeln(count(str, symb)) // 5
 
-
+let count=(str,stringsearch)=>console.log(str.split(stringsearch).length-1);
+count("Астрономия это наука о небесных объектах",'о');
+console.log('--------------------');
 
 // - Напишіть функцію cutString(str, n), яка видаляє зайві слова з рядка str, залишивши у ній n слів.
 //     let str = "Сила тяжести приложена к центру масс тела";
@@ -190,11 +192,11 @@ let books = [
 
 // -знайти наібльшу книжку.
 
-let largest=(bookArray)=>{
-    let sortedArr=bookArray.sort((a,b)=>b.pageCount-a.pageCount);
-    return console.log(sortedArr[0]);
+let largestBook=(arrName)=>{
+    let sorted=arrName.sort((a,b)=>(b.pageCount-a.pageCount));
+    return console.log(sorted[0]);
 }
-largest(books);
+largestBook(books);
 console.log('--------------------');
 
 // - знайти книжку/ки з найбільшою кількістю жанрів
@@ -209,6 +211,17 @@ let genres=(bookArray)=>{
 }
 genres(books);
 console.log('--------------------');
+
+// let genres=(arrName)=>arrName.reduce((acc,current)=>{
+//     if (current.genres.length>acc){
+//         return current.genres.length;
+//     }else{
+//         return acc;
+//     }
+// },0);
+// let showBooks=(arrName)=>arrName.filter(element =>element.genres.length===genres(books));
+// console.log(showBooks(books));
+// console.log('--------------------');
 
 // - знайти книжку/ки з найдовшою назвою
 
@@ -234,5 +247,4 @@ console.log('--------------------');
 // - вісортувати книжки по кількості сторінок по зростанню
 
 let sort=(arrName)=>console.log(arrName.sort((a, b) => b.pageCount - a.pageCount));
-
 sort(books);
