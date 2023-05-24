@@ -211,7 +211,10 @@ console.log('--------------------');
 //     let str = "Сила тяжести приложена к центру масс тела";
 // document.writeln(cutString(str, 5)) // 'Сила тяжести приложена к центру'
 
+let str1 = "Сила тяжести приложена к центру масс тела";
 
+let cutString1=(str, n)=>console.log(str.split(' ').slice(0,n).join(' '));
+cutString1(str1,3);
 
 console.log('--------------------');
 
@@ -233,13 +236,18 @@ let books = [
     {
         title: 'Book 333333',
         pageCount: 400,
-        authors: ['Author 4'],
+        authors: ['Author 4', 'Author 2'],
         genres: ['Genre 1']
     }
 ];
 
 // -знайти наібльшу книжку.
 
+let largest=(bookArr)=>{
+    let sortedBooks=bookArr.sort((a,b)=>b.pageCount-a.pageCount);
+    console.log(sortedBooks[0]);
+}
+largest(books);
 
 console.log('--------------------');
 
@@ -255,14 +263,21 @@ console.log('--------------------');
 
 // - знайти книжку/ки які писали 2 автори
 
+let authors=(arrName)=>console.log(arrName.filter(element=>element.authors.length===2));
+authors(books);
 
 console.log('--------------------');
 
 // - знайти книжку/ки які писав 1 автор
 
+let author=(arrName)=>console.log(arrName.filter(element=>element.authors.length===1));
+author(books);
 
 console.log('--------------------');
 
 // - вісортувати книжки по кількості сторінок по зростанню
+
+let sorted=(arrName)=>console.log(arrName.sort((a,b)=>a.pageCount-b.pageCount));
+sorted(books);
 
 console.log('--------------------');
