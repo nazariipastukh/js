@@ -48,7 +48,6 @@ console.log('--------------------');
 // let n3 = 'Hermione Granger'
 
 
-
 console.log('--------------------');
 
 // - створити функцію, яка генерує масив рандомних числових цілих значень в діапазоні від 0 до 100.
@@ -87,7 +86,6 @@ console.log('--------------------');
 
 let capitalize=(str)=>{
     let words=str.split(' ');
-    let newArr=[];
     for (let i=0;i<words.length;i++){
         let word=words[i];
         words[i]=word.charAt(0).toUpperCase()+word.slice(1);
@@ -222,6 +220,12 @@ console.log('--------------------');
 
 let books = [
     {
+        title: 'Book 333333',
+        pageCount: 400,
+        authors: ['Author 4', 'Author 2'],
+        genres: ['Genre 1']
+    },
+    {
         title: 'Book 1',
         pageCount: 200,
         authors: ['Author 1', 'Author 2'],
@@ -232,12 +236,6 @@ let books = [
         pageCount: 300,
         authors: ['Author 3'],
         genres: ['Genre 2', 'Genre 3']
-    },
-    {
-        title: 'Book 333333',
-        pageCount: 400,
-        authors: ['Author 4', 'Author 2'],
-        genres: ['Genre 1']
     }
 ];
 
@@ -253,11 +251,27 @@ console.log('--------------------');
 
 // - знайти книжку/ки з найбільшою кількістю жанрів
 
+let genres=(arrName)=>arrName.reduce((acc,current)=>{
+    if (current.genres.length > acc){
+        acc=current.genres.length;
+    }
+    return acc;
+},0);
+let findBook=(arrName,acc)=>console.log(arrName.filter(element=>element.genres.length===acc));
+findBook(books,genres(books));
 
 console.log('--------------------');
 
 // - знайти книжку/ки з найдовшою назвою
 
+let title=(arrName)=>arrName.reduce((acc,element)=>{
+   if (element.title.length>acc){
+       acc=element.title.length;
+   }
+   return acc;
+},0)
+let longestTitle=(arrName,acc)=>console.log(arrName.filter(element=>element.title.length===acc));
+longestTitle(books,title(books));
 
 console.log('--------------------');
 
