@@ -47,6 +47,11 @@ console.log('--------------------');
 // let n2 = 'Ron Whisley'
 // let n3 = 'Hermione Granger'
 
+let normalize=(str)=>{
+    let newStr=str.replaceAll('.',' ').replaceAll('-',' ').replaceAll('_',' ');
+    return newStr.split(' ').filter(element=>element!=='').join(' ');
+}
+console.log(normalize('Harry.....Potter'));
 
 console.log('--------------------');
 
@@ -108,7 +113,16 @@ console.log('--------------------');
 // Для тих, хто дуже розумний, та почне використовувати регулярні вирази одразу "ні".
 // Своїм мозком подумайте над протоколом, з регулярками будете потім бавитись.
 
-
+let splitEmail=(email)=>{
+    let splitEmail=email.split('@');
+    if (splitEmail[0].length>0 && email.includes('@')
+        && splitEmail[1].indexOf('.')>1 && !splitEmail[0].includes('.')){
+        return console.log('valid email');
+    }else{
+        return console.log('invalid email');
+    }
+}
+splitEmail('some.email@gmail.com');
 
 console.log('--------------------');
 
