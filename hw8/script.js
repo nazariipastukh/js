@@ -122,13 +122,47 @@ console.log('--------------------');
 // - (Те саме, тільки через клас)
 // Створити клас який дозволяє створювати об'єкти car, з властивостями модель, виробник, рік випуску, максимальна швидкість,
 // об'єм двигуна. додати в об'єкт функції:
-// -- drive () - яка виводить в консоль `їдемо зі швидкістю ${максимальна швидкість} на годину`
-// -- info () - яка виводить всю інформацію про автомобіль в форматі `назва поля - значення поля`
-// -- increaseMaxSpeed (newSpeed) - яка підвищує значення максимальної швидкості на значення newSpeed
-// -- changeYear (newValue) - змінює рік випуску на значення newValue
-// -- addDriver (driver) - приймає об'єкт який "водій" з довільним набором полів, і додає його в поточний об'єкт car
 
+class CarsClass{
+    constructor(model,country,year,maxSpeed,engine){
+        this.model=model;
+        this.country=country;
+        this.year=year;
+        this.maxSpeed=maxSpeed;
+        this.engine=engine;
+    }
+    // -- drive () - яка виводить в консоль `їдемо зі швидкістю ${максимальна швидкість} на годину`
+    drive(){
+        console.log(`їдемо зі швидкістю ${this.maxSpeed}`);
+    }
+    // -- info () - яка виводить всю інформацію про автомобіль в форматі `назва поля - значення поля`
+    info(){
+        console.log
+        (`model - ${this.model}, country - ${this.country}, year - ${this.year}, maxSpeed - ${this.maxSpeed}, engine - ${this.engine}`);
+    }
+    // -- increaseMaxSpeed (newSpeed) - яка підвищує значення максимальної швидкості на значення newSpeed
+    increaseMaxSpeed(newSpeed){
+        console.log(`max speed - ${this.maxSpeed+newSpeed}`);
+    }
+    // -- changeYear (newValue) - змінює рік випуску на значення newValue
+    changeYear(newValue){
+        this.year=newValue;
+        console.log(`year - ${this.year}`);
+    }
+    // -- addDriver (driver) - приймає об'єкт який "водій" з довільним набором полів, і додає його в поточний об'єкт car
+    addDriver (name,age){
+        this.name=name;
+        this.age=age;
+        console.log(`${this.name} ${this.age}`);
+    }
+}
+let carClass=new CarsClass('Audi','Germany',2015,290,3);
 
+carClass.drive();
+carClass.info();
+carClass.increaseMaxSpeed(20);
+carClass.changeYear(2020);
+carClass.addDriver('John',20);
 
 console.log('--------------------');
 
