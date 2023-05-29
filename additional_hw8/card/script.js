@@ -1,14 +1,3 @@
-// const card=userCard=(num)=>{
-//     class UserCard{
-//         constructor(balance=100,transactionLimit=100,historyLogs,key) {
-//             this.balance=balance;
-//             this.transactionLimit=transactionLimit;
-//             this.historyLogs=historyLogs;
-//             this.key=key;
-//         }
-//     }
-// }
-
 const userCard=(num)=>{
     class UserCard {
         constructor(balance = 100, transactionLimit = 100, key, ...historyLogs) {
