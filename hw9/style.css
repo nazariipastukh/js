@@ -1,0 +1,41 @@
+.block{
+    border: 3px solid darkblue;
+    margin-top:20px;
+
+}
+.title{
+    margin:10px;
+    border: 3px solid mediumslateblue;
+    display: flex;
+    justify-content: center;
+}
+.wrap{
+    margin: 10px;
+    display: flex;
+}
+.month{
+    display: flex;
+    border: 3px solid mediumslateblue;
+    margin-right: 10px;
+    width: 25vw;
+    justify-content: center;
+}
+.hour{
+    display: flex;
+    border: 3px solid mediumslateblue;
+    width:70vw;
+    justify-content: center;
+}
+.modules{
+    border: 3px solid mediumslateblue;
+    margin: 10px;
+}
+.li{
+    text-decoration: none;
+    margin: 5px 10px 5px -30px;
+    border: 3px solid mediumslateblue;
+    padding-left: 10px;
+}
+.ul{
+    list-style-type: none;
+}

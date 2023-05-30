@@ -242,4 +242,36 @@ let coursesArray = [
 for (let element of coursesArray){
     let block=document.createElement('div');
     document.body.appendChild(block);
+    block.classList.add('block');
+
+    let title=document.createElement('div');
+    title.innerText=element.title;
+    title.classList.add('title');
+
+    let monthDuration=document.createElement('div');
+    monthDuration.innerText=element.monthDuration;
+    monthDuration.classList.add('month');
+
+    let hourDuration=document.createElement('div');
+    hourDuration.innerText=element.hourDuration;
+    hourDuration.classList.add('hour');
+
+    let wrap=document.createElement('div');
+    wrap.classList.add('wrap');
+
+    let modules=document.createElement('div');
+    modules.classList.add('modules');
+
+    let ul=document.createElement('ul');
+    ul.classList.add('ul');
+
+    for (let item of element.modules){
+        let li=document.createElement('li');
+        li.innerText=item;
+        li.classList.add('li');
+        ul.appendChild(li);
+    }
+    modules.appendChild(ul);
+    block.append(title,wrap,modules);
+    wrap.append(monthDuration,hourDuration);
 }
