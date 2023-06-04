@@ -694,42 +694,33 @@ let locations = [
     }
 ];
 
-let main = document.createElement('div');
-let prev = document.createElement('button');
-prev.classList.add('button');
-prev.innerText='Previous';
-let next = document.createElement('button');
-next.classList.add('button');
+let main=document.createElement('div');
+let next=document.createElement('button');
+let prev=document.createElement('button');
+let content=document.createElement('div');
 next.innerText='Next';
-let element = document.createElement('div');
+prev.innerText='Previous';
 document.body.appendChild(main);
-main.append(prev, next, element);
+main.append(prev,next,content);
 
-// let json = JSON.stringify(locations)
-// localStorage.setItem('elements', json)
-// let button = document.getElementsByTagName('button')
-// let arr = JSON.parse(localStorage.getItem('elements'))
-
-let contentArr = [];
-for (let i = 0; i < locations.length; i += 10) {
-    let sliced = locations.slice(i, i + 10)
-    contentArr.push(sliced);
+let arr=[];
+for (let i=0;i<locations.length;i+=10){
+    arr.push(locations.slice(i,i+10));
 }
+
 let counter=0;
-element.innerText = JSON.stringify(contentArr[counter]);
-next.addEventListener("click", function (e) {
-    if(counter<contentArr.length) {
-        element.innerHTML = '';
-        element.innerText = JSON.stringify(contentArr[counter]);
-        main.appendChild(element);
+content.innerText=JSON.stringify(arr[counter]);
+next.addEventListener('click',function (e){
+    if (counter<arr.length){
+        content.innerHTML='';
+        content.innerText=JSON.stringify(arr[counter]);
         counter++;
     }
 })
-prev.addEventListener("click", function (e) {
-    if (counter > 0) {
+prev.addEventListener('click',function(e){
+    if (counter>0){
         counter--;
-        element.innerHTML = '';
-        element.innerText = JSON.stringify(contentArr[counter]);
-        main.appendChild(element);
+        content.innerText=JSON.stringify(arr[counter]);
+
     }
-});
+})
