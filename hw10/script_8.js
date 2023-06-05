@@ -5,20 +5,19 @@
 //     При перезавантаженні, яке відбулось раніше ніж минуло 10 секунд - нічого не відбувається
 
 let block=document.createElement('div');
+let time=localStorage.getItem('time');
+let price=localStorage.getItem('price');
+let newTime=Date.now();
+localStorage.setItem('time',JSON.stringify(newTime));
 
-let content=localStorage.getItem('time');
-price=localStorage.getItem('price');
-let timeNow=JSON.stringify(Date.now());
-localStorage.setItem('time',timeNow);
-
-if (!price){
-    price = 100;
-}
-if(content &&(timeNow-content>=1000)){
-    price=JSON.parse(price)+10;
+if(!time){
+    price=100;
+}else{
+    if(time && (newTime-time>=1000)){
+        price=JSON.parse(price)+10;
+    }
 }
 
 localStorage.setItem('price',price);
-block.innerText=JSON.stringify(price);
+block.innerText=price;
 document.body.appendChild(block);
-

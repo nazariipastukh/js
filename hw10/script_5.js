@@ -2,16 +2,18 @@
 // зробіть так, щоб при натисканні
 // на кнопку зникав елемент з id="text".
 
-let button=document.createElement('button');
-let button1=document.createElement('button');
-let div=document.createElement('div');
-div.setAttribute('id','text');
-document.body.append(button,button1,div);
+let show=document.createElement('button');
+let hide=document.createElement('button');
+let text=document.createElement('div');
+text.setAttribute('id','text');
+show.innerText='Show';
+hide.innerText='Hide'
+document.body.append(hide,show,text);
 
-button1.addEventListener('click',function(e){
-    div.style.display='block';
+hide.addEventListener('click',function(){
+    text.style.display='none';
 });
-button.addEventListener('click',function(e){
-    div.style.display='none';
+show.addEventListener('click',function(){
+    text.style.display='block';
 });
 

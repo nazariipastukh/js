@@ -697,30 +697,32 @@ let locations = [
 let main=document.createElement('div');
 let next=document.createElement('button');
 let prev=document.createElement('button');
-let content=document.createElement('div');
+let city=document.createElement('div');
 next.innerText='Next';
 prev.innerText='Previous';
+main.append(prev,next,city);
 document.body.appendChild(main);
-main.append(prev,next,content);
 
 let arr=[];
 for (let i=0;i<locations.length;i+=10){
-    arr.push(locations.slice(i,i+10));
+    arr.push(JSON.stringify(locations.slice(i,i+10)));
 }
 
 let counter=0;
-content.innerText=JSON.stringify(arr[counter]);
-next.addEventListener('click',function (e){
-    if (counter<arr.length){
-        content.innerHTML='';
-        content.innerText=JSON.stringify(arr[counter]);
+city.innerText=arr[counter];
+
+next.addEventListener('click',function(){
+    if(counter<arr.length-1){
+        city.innerHTML='';
+        city.innerText=arr[counter+1];
         counter++;
     }
-})
-prev.addEventListener('click',function(e){
-    if (counter>0){
+});
+prev.addEventListener('click',function(){
+    if(counter>=1){
+        city.innerHTML='';
+        city.innerText=arr[counter-1]
         counter--;
-        content.innerText=JSON.stringify(arr[counter]);
-
     }
-})
+});
+
