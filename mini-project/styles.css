@@ -1,0 +1,60 @@
+/* Стилизація проєкта -
+index.html - всі блоки з user - по 2 в рядок. кнопки/аосилвння розташувати під інформацією про user.
+user-details.html - блок з інфою про user зверху сторінки. Кнопка нижчє, на 90% ширини сторінки, по центру.
+блоки з короткою іфною про post - в ряд по 5 .
+post-details.html - блок з інфою про пост зверху. Коментарі - по 4 в ряд. Всі елементи котрі
+характеризують users, posts, comments візуалізувати, так, щоб було видно що це блоки (дати фон. марджини і тд)
+*/
+body{
+    margin:0;
+    overflow: hidden;
+    background: rgb(238,174,202);
+    background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%);
+}
+.block{
+    display: flex;
+    justify-content: center;
+    width: 50%;
+}
+h2{
+    margin:15px 0 0 0;
+    font-family: 'Rubik', sans-serif;
+}
+h4{
+    margin:10px;
+    font-family: 'Rubik', sans-serif;
+    font-weight: 300;
+}
+.wrap{
+    margin: 0;
+    padding:0 250px;
+    display: flex;
+    flex-wrap: wrap;
+}
+button{
+    height:3vh;
+    width:6vw;
+    border: 2px darkgray solid;
+    border-radius: 7px;
+}
+.userBlock{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 3vh;
+    width: 20vw;
+    height: 15.8vh;
+    border-radius: 10px;
+    background: rgb(227,207,216);
+    background: radial-gradient(circle, rgba(227,207,216,1) 0%, rgba(255,255,255,1) 100%);
+    transition: 0.1s ease-in;
+}
+.userBlock:hover{
+    border-radius: 20px;
+    background: rgb(215,200,207);
+    background: radial-gradient(circle, rgba(215,200,207,1) 0%, rgba(242,242,242,1) 100%);
+    transform: scale(1.1);
+}
+button:hover{
+    background: #dddddd;
+}
