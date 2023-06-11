@@ -34,8 +34,11 @@ h4{
 button{
     height:3vh;
     width:6vw;
-    border: 2px darkgray solid;
+    border: 1px darkgray solid;
     border-radius: 7px;
+    font-family: 'Rubik', sans-serif;
+    font-weight: 300;
+    background-color: transparent;
 }
 .userBlock{
     display: flex;
@@ -54,6 +57,71 @@ button{
     background: rgb(215,200,207);
     background: radial-gradient(circle, rgba(215,200,207,1) 0%, rgba(242,242,242,1) 100%);
     transform: scale(1.1);
+}
+.userDetails{
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+    background: rgb(227,207,216);
+    background: radial-gradient(circle, rgba(227,207,216,1) 0%, rgba(255,255,255,1) 100%);
+    margin: 30px 200px 10px 200px;
+    padding: 20px 50px;
+}
+.innerBlock{
+    display: flex;
+}
+.key{
+    font-family: 'Rubik', sans-serif;
+    font-weight: 600;
+}
+.value{
+    font-family: 'Rubik', sans-serif;
+    font-weight: 300;
+}
+p{
+    margin:10px 5px;
+}
+.posts{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: 20px 200px;
+}
+.postsButton{
+    height: 4vh;
+    width:10vw;
+    font-family: 'Rubik', sans-serif;
+    font-weight: 300;
+}
+.buttonDiv{
+    display: flex;
+    justify-content: center;
+    margin-top: 5vh;
+}
+.post{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 16vh;
+    border-radius: 10px;
+    background: #fcf4f8;
+    width: calc(20% - 10px);
+    margin-bottom: 7px;
+    transition: 0.1s ease-in;
+}
+.post:hover{
+    transform: scale(1.05);
+}
+.postTitle{
+    display: flex;
+    text-align: center;
+    font-family: 'Rubik', sans-serif;
+    font-weight: 300;
+    height:10vh;
+    padding:7px 20px;
+}
+.postButton{
+    margin-bottom: 1vh;
 }
 button:hover{
     background: #dddddd;
