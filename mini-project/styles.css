@@ -5,6 +5,8 @@ user-details.html - блок з інфою про user зверху сторін
 post-details.html - блок з інфою про пост зверху. Коментарі - по 4 в ряд. Всі елементи котрі
 характеризують users, posts, comments візуалізувати, так, щоб було видно що це блоки (дати фон. марджини і тд)
 */
+
+/*---------------INDEX-STYLES---------------*/
 body{
     margin:0;
     overflow: hidden;
@@ -48,8 +50,7 @@ button{
     width: 20vw;
     height: 15.8vh;
     border-radius: 10px;
-    background: rgb(227,207,216);
-    background: radial-gradient(circle, rgba(227,207,216,1) 0%, rgba(255,255,255,1) 100%);
+    background: #fcf4f8;
     transition: 0.1s ease-in;
 }
 .userBlock:hover{
@@ -62,11 +63,11 @@ button{
     display: flex;
     flex-direction: column;
     border-radius: 10px;
-    background: rgb(227,207,216);
-    background: radial-gradient(circle, rgba(227,207,216,1) 0%, rgba(255,255,255,1) 100%);
+    background: #fcf4f8;
     margin: 30px 200px 10px 200px;
     padding: 20px 50px;
 }
+/*---------------USER-STYLES---------------*/
 .innerBlock{
     display: flex;
 }
@@ -125,4 +126,75 @@ p{
 }
 button:hover{
     background: #dddddd;
+}
+/*---------------POST-STYLES----------------*/
+.id{
+    margin:10px 0;
+    font-family: 'Rubik', sans-serif;
+    font-weight: 300;
+}
+.title{
+    font-family: 'Rubik', sans-serif;
+    font-weight: 600;
+}
+.postBody{
+    font-family: 'Rubik', sans-serif;
+    font-weight: 400;
+}
+.postWrap{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+.postDetails{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 5vh;
+    width:65vw;
+    height:26vh;
+    margin: 5vh 0 2vh 0;
+    border-radius: 10px;
+    background: #fcf4f8;
+}
+.comments{
+    flex-wrap: wrap;
+    justify-content: space-between;
+    display: flex;
+    width: 70vw;
+    height: 42vh;
+    border-radius: 10px;
+}
+.comment{
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    border-radius: 10px;
+    background: #fcf4f8;
+    width: calc(20% - 30px);
+    height: 50vh;
+    transition: 0.1s ease-in;
+}
+.email{
+    border: 1px #cccccc solid;
+    border-radius: 5px;
+    padding: 3px;
+    font-family: 'Rubik', sans-serif;
+    font-weight: 300;
+    margin: 5px 0;
+    letter-spacing: -1px;
+}
+.commentTitle{
+    font-family: 'Rubik', sans-serif;
+    font-weight: 400;
+    margin: 3px 2px;
+}
+.commentBody{
+    font-family: 'Rubik', sans-serif;
+    font-weight: 300;
+    margin: 5px 2px;
+    letter-spacing: -0.5px;
+}
+.comment:hover{
+    transform: scale(1.05);
 }
