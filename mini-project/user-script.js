@@ -68,14 +68,12 @@ function explorer(object, mainBlock) {
         keyValue.innerText = `${key.charAt(0).toUpperCase() + key.slice(1)}:`;
 
         if (typeof object[key] === 'object') {
-            innerBlock.appendChild(keyValue);
-            innerBlock.appendChild(value);
+            innerBlock.append(keyValue,value);
             mainBlock.appendChild(innerBlock);
             explorer(object[key], innerBlock);
         } else {
             value.innerText = `${object[key]}`;
-            innerBlock.appendChild(keyValue);
-            innerBlock.appendChild(value);
+            innerBlock.append(keyValue,value);
             mainBlock.appendChild(innerBlock);
         }
     }
