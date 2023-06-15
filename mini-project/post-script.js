@@ -26,6 +26,7 @@ fetch(`https://jsonplaceholder.typicode.com/posts/${postId}`)
         postDetails.append(id, title, postBody);
         wrap.append(postDetails);
     });
+document.body.appendChild(wrap);
 
 setTimeout(() => {
     fetch(`https://jsonplaceholder.typicode.com/posts/${postId}/comments`)
@@ -37,11 +38,11 @@ setTimeout(() => {
             comments.forEach(comment => {
                 const com = document.createElement('div');
                 com.classList.add('comment');
-                const email = document.createElement('h5');
+                const email = document.createElement('h6');
                 email.classList.add('email');
-                const title = document.createElement('h3');
+                const title = document.createElement('h4');
                 title.classList.add('commentTitle');
-                const body = document.createElement('h4');
+                const body = document.createElement('h5');
                 body.classList.add('commentBody');
 
                 email.innerText = comment.email;
@@ -50,9 +51,8 @@ setTimeout(() => {
 
                 com.append(email, title, body);
                 commentsWrap.appendChild(com);
-            })
+            });
             wrap.appendChild(commentsWrap);
         });
-}, 100);
+}, 200);
 
-document.body.appendChild(wrap);

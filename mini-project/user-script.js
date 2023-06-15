@@ -39,7 +39,7 @@ fetch(`https://jsonplaceholder.typicode.com/users/${userId}`)
                             postDiv.classList.add('post');
                             const postTitle = document.createElement('div');
                             postTitle.classList.add('postTitle');
-                            postTitle.innerText = `"${post.title.charAt(0).toUpperCase() + post.title.slice(1)}"`;
+                            postTitle.innerText = `ID: ${post.id}. "${post.title.charAt(0).toUpperCase() + post.title.slice(1)}"`;
                             const postButton = document.createElement('button');
                             postButton.classList.add('postButton');
                             postButton.innerText = 'Post Details';
@@ -68,12 +68,12 @@ function explorer(object, mainBlock) {
         keyValue.innerText = `${key.charAt(0).toUpperCase() + key.slice(1)}:`;
 
         if (typeof object[key] === 'object') {
-            innerBlock.append(keyValue,value);
+            innerBlock.append(keyValue, value);
             mainBlock.appendChild(innerBlock);
             explorer(object[key], innerBlock);
         } else {
             value.innerText = `${object[key]}`;
-            innerBlock.append(keyValue,value);
+            innerBlock.append(keyValue, value);
             mainBlock.appendChild(innerBlock);
         }
     }
