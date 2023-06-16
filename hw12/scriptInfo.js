@@ -6,10 +6,31 @@ fetch(`https://jsonplaceholder.typicode.com/users/${userId}`)
     .then(response => response.json())
     .then(user => {
         let userInfo = document.createElement('div');
-        for (let key in user) {
-            let info = document.createElement('p');
-            info.innerText = `${key}: ${user[key]}`;
-            userInfo.appendChild(info);
-        }
+        let ul=document.createElement('ul');
+        userInfo.appendChild(ul);
         document.body.appendChild(userInfo);
+        explorer(user, ul);
     });
+
+function ulAdd(key,object,block){
+    let li=document.createElement('li');
+    let ul=document.createElement('ul');
+    li.innerText=key;
+    block.appendChild(li);
+    li.appendChild(ul);
+    explorer(object,ul);
+}
+function liAdd(key,value,block){
+    let li=document.createElement('li');
+    li.innerText=`${key}: ${value}`;
+    block.appendChild(li);
+}
+function explorer(object, block) {
+    for (let key in object) {
+        if (typeof object[key] === 'object') {
+            ulAdd(key, object[key],block);
+        } else {
+            liAdd(key,object[key], block);
+        }
+    }
+}
