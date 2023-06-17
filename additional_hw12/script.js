@@ -52,7 +52,7 @@ fetch('https://jsonplaceholder.typicode.com/users')
                                         fetch(`https://jsonplaceholder.typicode.com/posts/${post.id}/comments`)
                                             .then(response => response.json())
                                             .then(comments => {
-                                                rightBlock.innerHTML='';
+                                                rightBlock.innerHTML = '';
 
                                                 comments.forEach(comment => {
                                                     const commentElement = document.createElement('div');
@@ -96,27 +96,3 @@ function explorer(object, block, userId) {
         }
     }
 }
-
-
-
-
-
-// - Імітуємо наповнення інтернет магазину товарами :
-//     Створити форму з наступними полями :
-//     - назва товару
-// - кількість товару
-// - ціна товару
-// - картинка товару (посилання з інтернету)
-
-
-// Зберігати товари в масив в локалсорадж. При збережені товару з форми, action не повинно відбуватись (preventDefault)
-// створити елемент <a href='list.html'> На сторінку товарів</a>, та list.html, при переході на який відобразити на сторінці всі товари.
-// На сторінці  list.html побудувати кнопку яка видаляє всі товари з корзини та локалстораджа.
-//     До кожного товару додати кнопку, при кліку на яку з лс видаляється конкретний обраний  товар
-
-
-// зробити файл users.html
-// з ендпоінту http://jsonplaceholder.typicode.com/users отримати всіх користувачів
-//     вивести їх id + name списком та додати посилання з href = user-details.html?id=XXX (замість ХХХ - айді юзера)
-// при кліку на посилання перехід на відповідну сторінку, на якій буде вся інформація про користувача (всі 15 полів)
-// отримана через додатковий запит (https://jsonplaceholder.typicode.com/users/XXX   ХХХ - айді користувача)
