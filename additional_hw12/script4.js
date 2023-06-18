@@ -47,7 +47,7 @@ button1.addEventListener('click', function (e) {
         name: input1.value,
         number: input2.value,
         price: input3.value,
-        image: input1.value
+        image: input4.value
     }
     if (input1.value && input2.value && input3.value && input4.value !== '') {
         products.push(product);
