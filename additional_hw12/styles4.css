@@ -8,7 +8,6 @@
 body{
     margin:0;
     background: rgb(191,188,237);
-    background: linear-gradient(90deg, rgba(191,188,237,1) 0%, rgba(233,233,242,1) 35%);
 }
 form{
     height:50vh;
@@ -56,10 +55,13 @@ button:hover{
 }
 .content{
     width:60vw;
-    height:100vh;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 .title{
-    width:60vw;
+    width:57vw;
     height:10vh;
     background: rgb(243,242,255);
     background: linear-gradient(90deg, rgba(243,242,255,1) 0%, rgba(226,226,239,1) 100%);
@@ -67,19 +69,22 @@ button:hover{
     display: flex;
     align-items: center;
     justify-content: center;
-    margin: 3vh 0;
+    margin: 3vh 0 1vh ;
+    padding: 2vh;
+    font-family: 'Kanit', sans-serif;
+    font-weight: 400;
 }
 .bin{
-    width:60vw;
-    display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: flex-start;
+    display: flex;
+    width:60vw;
 }
 .productBlock{
     background: rgb(243,242,255);
-    background: linear-gradient(90deg, rgba(243,242,255,1) 0%, rgba(226,226,239,1) 100%);
+    background: rgba(243,242,255,1);
     border-radius: 20px;
-    width: calc(20% + 30px);
+    width: 23.3%;
     height:40vh;
     display: flex;
     flex-direction: column;
@@ -87,7 +92,7 @@ button:hover{
     justify-content: space-evenly;
     font-family: 'Kanit', sans-serif;
     font-weight: 400;
-    margin-bottom: 3vh;
+    margin: 1vh 0.5vw;
 }
 .productImage{
     width:12vw;
@@ -110,7 +115,8 @@ h3{
     margin: 3vh;
 }
 .deleteButton{
-    margin-bottom:10vh;
+    margin-bottom:7vh;
 }
+
 
 

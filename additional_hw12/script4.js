@@ -39,8 +39,6 @@ form.append(description, input1, input2, input3, input4, buttons);
 page.appendChild(form);
 document.body.appendChild(page);
 
-const products = [];
-
 button1.addEventListener('click', function (e) {
     e.preventDefault();
     const product = {
@@ -48,6 +46,14 @@ button1.addEventListener('click', function (e) {
         number: input2.value,
         price: input3.value,
         image: input4.value
+    }
+    const productsStorage = localStorage.getItem('products');
+    let products;
+
+    if (productsStorage) {
+        products = JSON.parse(productsStorage);
+    } else {
+        products = [];
     }
     if (input1.value && input2.value && input3.value && input4.value !== '') {
         products.push(product);

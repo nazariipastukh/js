@@ -18,9 +18,18 @@ titleText.innerText = 'Your Products Information';
 content.classList.add('content');
 bin.classList.add('bin');
 deleteButton.classList.add('deleteButton');
+title.appendChild(titleText);
 
-try {
-    const products = JSON.parse(localStorage.getItem('products'));
+function empty() {
+    const emptyDiv = document.createElement('div');
+    emptyDiv.classList.add('title');
+    emptyDiv.innerText = 'Your cart is empty';
+    emptyDiv.style.fontSize = '25px';
+    content.append(title, emptyDiv);
+}
+
+const products = JSON.parse(localStorage.getItem('products'));
+if (products) {
     products.forEach(product => {
         const name = product.name;
         const number = product.number;
@@ -41,14 +50,33 @@ try {
         productName.innerText = name;
         productPriceNum.innerText = `Price: ${price}$. Items: ${number}`;
 
+        productButton.addEventListener('click', function () {
+            productBlock.remove();
+
+            const index = products.indexOf(product);
+            products.splice(index, 1);
+            localStorage.setItem('products', JSON.stringify(products));
+            if (products.length === 0) {
+                localStorage.clear();
+                buttonBlock.style.display = 'none';
+                empty();
+            }
+        });
         productBlock.append(productImage, productName, productPriceNum, productButton);
         bin.appendChild(productBlock);
+        buttonBlock.appendChild(deleteButton);
+        content.append(title, bin, buttonBlock);
     });
-} catch (name) {
+} else {
+    empty();
 }
 
-buttonBlock.appendChild(deleteButton);
-title.appendChild(titleText);
-content.append(title, bin, buttonBlock);
+deleteButton.addEventListener('click', function () {
+    localStorage.clear();
+    bin.style.display = 'none';
+    buttonBlock.style.display = 'none';
+    empty();
+});
+
 page.appendChild(content);
 document.body.appendChild(page);
