@@ -22,6 +22,17 @@ const page = document.createElement('div');
 page.classList.add('page');
 const usersBlock = document.createElement('div');
 usersBlock.classList.add('usersBlock');
+const viewFav=document.createElement('div');
+const favButton=document.createElement('button');
+favButton.classList.add('favButton')
+favButton.innerText='Favourites'
+viewFav.append(favButton)
+viewFav.classList.add('view')
+
+favButton.addEventListener('click',function(e){
+    e.preventDefault()
+    location.href='result.html'
+})
 
 usersArr.forEach(user => {
     const userBlock = document.createElement('div');
@@ -31,8 +42,14 @@ usersArr.forEach(user => {
     const status = document.createElement('p');
     status.classList.add('status');
     const button = document.createElement('button');
+    const button1=document.createElement('button');
+    button1.innerText='Remove';
+    const buttonBlock=document.createElement('div')
+    buttonBlock.classList.add('buttonBlock');
 
-    button.innerText = 'Add to favourites';
+    buttonBlock.append(button,button1);
+
+    button.innerText = 'Add';
     nameAge.innerText = `${user.name.charAt(0).toUpperCase() + user.name.slice(1)}, ${user.age}`;
 
     if (user.status === false) {
@@ -60,8 +77,16 @@ usersArr.forEach(user => {
             localStorage.setItem('users', JSON.stringify(users));
         }
     });
-    userBlock.append(nameAge, status, button);
+    button1.addEventListener('click', function () {
+        const usersStorage = JSON.parse(localStorage.getItem('users'));
+        const index = usersStorage.findIndex(u => u.name === user.name);
+        if (index > -1) {
+            usersStorage.splice(index, 1);
+            localStorage.setItem('users', JSON.stringify(usersStorage));
+        }
+    });
+    userBlock.append(nameAge, status, buttonBlock);
     usersBlock.appendChild(userBlock);
 });
-page.appendChild(usersBlock);
+page.append(usersBlock,viewFav);
 document.body.appendChild(page);

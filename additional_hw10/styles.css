@@ -10,19 +10,20 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    margin: 50px;
+    margin: 50px 0 50px 50px;
 }
 body{
     margin:0;
     overflow: hidden;
 }
 button {
-    margin: 4vh;
+    margin: 4vh 1vw;
     border-radius: 10px;
     height: 4vh;
     border: 1px darkgrey solid;
     background: #e9defa;
     transition: 0.1s ease-in;
+    width: 5vw;
 }
 p{
     margin:0;
@@ -55,3 +56,31 @@ p{
 button:hover{
     transform: scale(1.1);
 }
+.usersDiv{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 50px;
+}
+.contentBlock{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.title{
+    font-family: 'Kanit', sans-serif;
+    font-weight: 400;
+    font-size: 30px;
+}
+.buttonBlock{
+    display: flex;
+}
+.view{
+    margin:25px 25px 25px 0;
+}
+.favButton{
+    border-radius: 60px;
+    height: 8vh;
+    width: 8vw;
+}
+
