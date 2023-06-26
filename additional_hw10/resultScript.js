@@ -1,50 +1,64 @@
 // Створити сторніку favorites.html при переході на яку потрібно вивест в документ всіх обраних на попередньому етапі.
 
 const page = document.createElement('div');
-page.classList.add('page');
 const content = document.createElement('div');
-content.classList.add('contentBlock');
 const title = document.createElement('div');
-title.classList.add('title');
-
 const usersBlock = document.createElement('div');
-usersBlock.classList.add('usersDiv');
 
+page.classList.add('page');
+content.classList.add('contentBlock');
+title.classList.add('title');
+usersBlock.classList.add('usersDiv');
 title.innerText = 'Your Favourites';
 
-function clear() {
-    content.appendChild(title);
-    const isEmpty = document.createElement('p');
-    isEmpty.classList.add('empty');
-    isEmpty.innerText = 'There is no item in your favourites';
+function empty() {
+    const isEmpty = document.createElement('div');
+    isEmpty.classList.add('title');
+    isEmpty.innerText = 'There is no user in your favourites';
+    isEmpty.style.fontSize = '25px';
     content.append(title,isEmpty);
 }
 
 const users = JSON.parse(localStorage.getItem('users'));
-console.log(users);
-if (users) {
-    usersBlock.appendChild(title)
+if (users.length>0) {
     users.forEach(user => {
         const name = user.name;
         const age = user.age;
         const status = user.status;
 
         const userBlock = document.createElement('div');
-        userBlock.classList.add('user');
         const userName = document.createElement('p');
-        userName.classList.add('name');
         const userStatus = document.createElement('p');
+        const userRemove=document.createElement('button');
+        userRemove.innerText='Remove';
+
+        userRemove.addEventListener('click',function(){
+            const index = users.findIndex(u => u.name === user.name );
+            if (index > -1) {
+                users.splice(index, 1);
+                localStorage.setItem('users', JSON.stringify(users));
+                userBlock.style.display=`none`;
+            }
+            if (users.length === 0) {
+                usersBlock.style.display='none';
+                empty();
+            }
+        });
+        userBlock.classList.add('user');
+        userName.classList.add('name');
         userStatus.classList.add('status');
 
         userName.innerText = `${name}, ${age}`;
         userStatus.innerText = `${status}`;
 
-        userBlock.append(userName, userStatus);
+        userBlock.append(userName, userStatus, userRemove);
         usersBlock.appendChild(userBlock);
-        content.append(usersBlock)
-    })
-} else {
-    clear();
+        content.append(title,usersBlock);
+    });
+}else{
+    empty();
 }
+
 page.appendChild(content);
 document.body.appendChild(page);
+
