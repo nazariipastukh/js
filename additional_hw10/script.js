@@ -23,24 +23,37 @@ const usersBlock = document.createElement('div');
 const viewFav = document.createElement('div');
 const favButton = document.createElement('button');
 const removeAllButton = document.createElement('button');
+const title = document.createElement('div');
+const addAll = document.createElement('button');
 
+title.classList.add('title');
 page.classList.add('page');
 usersBlock.classList.add('usersBlock');
 viewFav.classList.add('view');
 favButton.classList.add('favButton');
 removeAllButton.classList.add('favButton');
+addAll.classList.add('favButton');
 
+title.innerText = 'Select Your Favourites';
 favButton.innerText = 'Favourites';
 removeAllButton.innerText = 'Remove all';
+addAll.innerText = 'Add all';
 
-viewFav.append(favButton, removeAllButton);
+viewFav.append(favButton, removeAllButton, addAll);
+usersBlock.appendChild(title);
+
+if (localStorage.length === 0) {
+    localStorage.setItem('users', JSON.stringify([]));
+}
 
 removeAllButton.addEventListener('click', function () {
-    localStorage.clear();
+    localStorage.setItem('users', JSON.stringify([]));
 });
-favButton.addEventListener('click', function (e) {
-    e.preventDefault();
+favButton.addEventListener('click', function () {
     location.href = 'result.html';
+});
+addAll.addEventListener('click', function () {
+    localStorage.setItem('users', JSON.stringify(usersArr));
 });
 
 usersArr.forEach(user => {
@@ -60,17 +73,14 @@ usersArr.forEach(user => {
     button.innerText = 'Add';
     button1.innerText = 'Remove';
 
-    buttonBlock.append(button, button1);
-
     if (user.status === false) {
         status.innerText = 'Not married';
     } else {
         status.innerText = 'Married';
     }
-    button.addEventListener('click', function (e) {
-        e.preventDefault();
-        const usersStorage = localStorage.getItem('users');
 
+    button.addEventListener('click', function () {
+        const usersStorage = localStorage.getItem('users');
         let users;
         if (!usersStorage) {
             users = [];
@@ -98,8 +108,9 @@ usersArr.forEach(user => {
         }
     });
 
+    buttonBlock.append(button, button1);
     userBlock.append(nameAge, status, buttonBlock);
-    usersBlock.appendChild(userBlock);
+    usersBlock.append(userBlock);
 });
 page.append(usersBlock, viewFav);
 document.body.appendChild(page);
